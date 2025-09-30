@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Y2K Tuner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#00FFFF',
+              secondary: '#FF00FF',
+              accent: '#FFFF00',
+              background: '#0A0A0A',
+              surface: '#1A1A1A',
+              text: '#FFFFFF',
+              'text-secondary': '#CCCCCC',
+              border: '#333333',
+            },
+            fontFamily: {
+              orbitron: ['Orbitron', 'sans-serif'],
+              rajdhani: ['Rajdhani', 'sans-serif'],
+            },
+            boxShadow: {
+              glow: '0 0 20px rgba(0, 255, 255, 0.5)',
+              'glow-hover': '0 0 30px rgba(0, 255, 255, 0.8)',
+              'glow-secondary': '0 0 20px rgba(255, 0, 255, 0.5)',
+            },
+            dropShadow: {
+              glow: '0 0 10px currentColor',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0.2) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.4;
+        animation: scanline-flicker 15s infinite linear;
+      }
+
+      @keyframes scanline-flicker {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(4px); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
+    "html2canvas": "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.esm.js",
+    "jspdf": "https://esm.sh/jspdf@2.5.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-background text-text antialiased font-rajdhani">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

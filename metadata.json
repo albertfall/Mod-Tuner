@@ -1,0 +1,7 @@
+{
+  "name": "Y2K Tuner",
+  "description": "An AI-powered photo editor channeling the high-octane energy of the underground tuner scene. Upload a photo of your car and modify it with a flashy, rebellious, late-90s digital flair.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
